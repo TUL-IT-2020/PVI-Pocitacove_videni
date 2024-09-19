@@ -1,0 +1,6 @@
+numpy
+pillow
+easyocr
+webcolors
+matplotlib
+opencv-python
