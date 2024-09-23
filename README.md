@@ -2,6 +2,6 @@
 
 ## Cvičení
 
-CVO1
+cvO1
 
 Odevzdat za 14 dní od zahájení cvičení.
