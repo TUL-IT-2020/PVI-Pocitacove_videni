@@ -59,7 +59,6 @@ def plot_imgs(
         if cbars != None and cbars[i]:
             plt.colorbar(fraction=0.046, pad=0.04)
     plt.show()
-    plt.waitforbuttonpress()
 
 def plot_imgs_x(
     imgs, titles, rows: int = 1, cmaps=None,
@@ -100,7 +99,6 @@ def plot_imgs_x(
         cv2.circle(img_centers, center, 5, points, -1)
     plt.imshow(img_centers)
     plt.show()
-    plt.waitforbuttonpress()
 
 if __name__ == "__main__":
     # TODO: test

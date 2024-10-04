@@ -94,8 +94,10 @@ def median(img, kernel_size : int = 3) -> np.ndarray:
             new_img[x-X_ker+1, y-Y_ker+1] = np.median(np.concatenate((y_axis, x_axis)))
             """
             new_img[x-X_ker+1, y-Y_ker+1] = np.median(img[x-X_ker+1:x+1, y-Y_ker+1:y+1])
-
-    return new_img
+    
+    # crop image
+    out = new_img[X_ker-1:X_img+X_ker-1, Y_ker-1:Y_img+Y_ker-1]
+    return out
 
 def laplace(img) -> np.ndarray:
     """ Implements 2D laplace filter
