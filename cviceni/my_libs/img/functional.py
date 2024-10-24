@@ -165,12 +165,16 @@ def color_objects(img : np.ndarray) -> tuple():
     Img background value is 255.
     Collor background number is 0.
     """
+    MAX_OBJECTS = 255
 
     def object_is_background(objects, array_of_keys, x, y):
         return objects.get(array_of_keys[x][y], 0) == 0
     
     def get_color(objects, array_of_keys, x, y):
         return objects.get(array_of_keys[x][y], 0)
+    
+    def int2uint8(x):
+        return np.uint8(x % 256)
 
     def solve_collor_from_neighbours(x : int, y : int, img : np.ndarray, array_of_keys : np.ndarray, objects : dict, object_number : int) -> int:
         """ Collor neighbours of point.
@@ -228,13 +232,19 @@ def color_objects(img : np.ndarray) -> tuple():
         for y in range(Y):
             object_number = solve_collor_from_neighbours(x, y, img, array_of_keys, objects, object_number)
 
+    # re-number objects
+    for number, object in enumerate(objects):
+        if number == 0:
+            continue
+        objects[object] = number
+
     # array of keys to colored image
     colored = np.zeros([X, Y], dtype=np.uint8)
     object_numbers = {}
     for x in range(X):
         for y in range(Y):
             color = get_color(objects, array_of_keys, x, y)
-            colored[x][y] = color
+            colored[x][y] = int2uint8(color)
             object_numbers[color] = color
     
     # remove background from list of objects
