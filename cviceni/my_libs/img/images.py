@@ -2,15 +2,20 @@ import os
 import numpy as np
 import cv2
 
-def find(folder, file_type: str = ["jpg"]):
+IMG_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm', '.tif']
+
+def file_extension(file: str) -> str:
+    return file.split('.')[-1]
+
+def find(folder, file_types: str = None) -> list[str]:
     cwd = os.getcwd()
     folder = os.path.join(cwd, folder)
     picture_files = []
     print("Current working directory: {0}, files: ".format(cwd))
     for file in os.listdir(folder):
-        # TODO: get file format
-        print(file)
-        picture_files.append(os.path.join(folder, file))
+        if file_types is None or file_extension(file) in file_types:
+            print(file)
+            picture_files.append(os.path.join(folder, file))
     return picture_files
 
 
