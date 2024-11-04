@@ -285,6 +285,33 @@ def calculate_centers_of_objects(img, object_numbers=[1]) -> dict:
 
     return centers
 
+
+def granulometry(img, kernel_size=100) -> list:
+    """
+    Granulometry is a morphological operation that measures the size distribution of objects in a binary image.
+    It is defined as the difference between the original image and the opening of the image by a series of structuring elements.
+    The structuring elements are disks of increasing size.
+
+    Args:
+        img : binary image
+        kernel_size : size of the kernel
+    
+    Returns:
+        granulometry : list of granulometry values
+    """
+    granulometry = []
+    last = np.copy(img)
+    # Iterate over the kernel sizes
+    for i in range(1, kernel_size + 1):
+        # Create a kernel
+        kernel = np.ones((i, i), np.uint8)
+        # Perform the opening operation
+        opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+        # Subtract the last opening
+        granulometry.append(np.sum(opening - last))
+        last = opening        
+    return granulometry
+
 def histogram(img) -> np.ndarray:
     """ Calculate histogram of image
     
