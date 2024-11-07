@@ -1,0 +1,3 @@
+[submodule "cviceni/my_libs"]
+	path = cviceni/my_libs
+	url = https://github.com/elPytel/my_libs.git
