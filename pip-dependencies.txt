@@ -4,4 +4,5 @@ pillow
 easyocr
 webcolors
 matplotlib
+scikit-image
 opencv-python
