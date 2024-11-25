@@ -6,3 +6,6 @@ webcolors
 matplotlib
 scikit-image
 opencv-python
+transformers
+datasets
+torch
