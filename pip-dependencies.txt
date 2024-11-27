@@ -7,5 +7,6 @@ matplotlib
 scikit-image
 opencv-python
 transformers
+torchvision
 datasets
 torch
