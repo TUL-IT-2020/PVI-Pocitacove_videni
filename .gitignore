@@ -3,6 +3,7 @@
 
 ### User specific ###
 *.zip
+cviceni/cv12/children_vs_adults/*
 
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
