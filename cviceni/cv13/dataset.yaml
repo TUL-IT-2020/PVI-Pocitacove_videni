@@ -1,0 +1,9 @@
+# Cesta k datasetu a obrázkům
+path: ./strawberries
+train: images_640px
+val: images_640px
+test: test
+
+# Třídy v datasetu
+names:
+  0: strawberry
