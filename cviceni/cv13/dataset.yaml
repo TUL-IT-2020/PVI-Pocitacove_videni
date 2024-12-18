@@ -1,7 +1,7 @@
 # Cesta k datasetu a obrázkům
-path: ./strawberries
-train: images_640px
-val: images_640px
+path: strawberries
+train: images
+val: images
 test: test
 
 # Třídy v datasetu
